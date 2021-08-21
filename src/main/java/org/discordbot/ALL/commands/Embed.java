@@ -13,7 +13,12 @@ public class Embed implements CommandExecutor {
     @Command(aliases = "embed", description = "I dont know")
     public void onPingCommand(MessageCreateEvent message)
     {
-        message.getChannel().sendMessage(embed(message));
+        if (message.getMessageAuthor().isBotOwner()) {
+            message.getChannel().sendMessage(embed(message));
+        } else {
+            message.getChannel().sendMessage(embed1(message));
+        }
+
     }
 
     private EmbedBuilder embed(MessageCreateEvent message)
@@ -23,5 +28,14 @@ public class Embed implements CommandExecutor {
                 .setDescription("This is an embed")
                 .setColor(new Color(99,123,121))
                 .setFooter("Hello", message.getMessageAuthor().getAvatar());
+    }
+
+    private EmbedBuilder embed1(MessageCreateEvent message)
+    {
+        return new EmbedBuilder()
+                .setTitle("You Can't Do That!")
+                .setDescription("Only my owner can use that command!")
+                .setColor(new Color(99,123,121))
+                .setFooter("Become owner of bot xD", message.getMessageAuthor().getAvatar());
     }
 }
