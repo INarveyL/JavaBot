@@ -14,11 +14,9 @@ public class Embed implements CommandExecutor {
     public void onPingCommand(MessageCreateEvent message)
     {
         checkOwner a = new checkOwner();
-        if (a.owner_check(message)) {
-            message.getChannel().sendMessage(embed(message));
-    } else {
-            message.getChannel().sendMessage("no");
-        }
+            if (a.owner_check(message)) {
+                message.getChannel().sendMessage("ok");
+            }
     }
 
     private EmbedBuilder embed(MessageCreateEvent message)
