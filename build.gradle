@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group 'com.discordALL.botALL'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://jitpack.io'
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'org.javacord:javacord:3.3.2'
+    runtimeOnly 'org.apache.logging.log4j:log4j-core:2.11.0'
+    implementation 'de.btobastian.sdcf4j:sdcf4j-core:1.0.10'
+    implementation 'de.btobastian.sdcf4j:sdcf4j-javacord:1.0.10'
+}
+
+test {
+    useJUnitPlatform()
+}
